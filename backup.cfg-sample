@@ -1,0 +1,9 @@
+[settings]
+backup_root_directory = /some/path/backups/
+scp_users = someuser
+directories_to_backup = /directory_1,/directory_2
+dump_gpg_passphrase = gpgpassphrasegoeshere
+tar_gpg_passphrase = gpgpassphrasegoeshere 
+encrypt_dump = true
+encrypt_tar = true
+
