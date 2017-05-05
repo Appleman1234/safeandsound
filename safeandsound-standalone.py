@@ -38,6 +38,7 @@ def main():
     dump_gpg_passphrase = config.get('settings', 'dump_gpg_passphrase').split(',') 
     encrypt_dump = config.getboolean('settings', 'encrypt_dump')
     encrypt_tar = config.getboolean('settings', 'encrypt_tar')
+    recipients = config.getboolean('settings', 'recipients')
 
     scp_directories = ["/home/" + x for x in scp_users]
     scp_directory_dict =  dict(zip(scp_users, scp_directories))
@@ -67,6 +68,11 @@ def main():
     if encrypt_dump:
         dump_gpg_filename = dump_filename[0]  + ".gpg"
         dump_file = open(dump_filename[0], "rb")
+        if recipients:
+            recip_list = open("recipients.cfg","r")
+            lines = recip_list.readlines()
+            gpg.encrypt_file(dump_file, recipients=recip_list, armor=False, output=dump_gpg_filename)
+        else
         gpg.encrypt_file(dump_file, recipients=None, symmetric='AES256', passphrase=dump_gpg_passphrase, armor=False, output=dump_gpg_filename) 
         os.remove(dump_filename[0])
 
@@ -88,6 +94,11 @@ def main():
     if encrypt_tar:
         tar_gpg_filename = tar_filepath + ".gpg"
         tar_file = open(tar_filepath, "rb")
+        if recipients:
+            recip_list = open("recipients.cfg","r")
+            lines = recip_list.readlines()
+            gpg.encrypt_file(tar_file, recipients=recip_list, armor=False, output=tar_gpg_filename)
+        else
         gpg.encrypt_file(tar_file,  recipients=None, symmetric='AES256', passphrase=tar_gpg_passphrase, armor=False,output=tar_gpg_filename) 
         os.remove(tar_filepath)
         filename = tar_gpg_filename
