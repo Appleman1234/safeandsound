@@ -6,4 +6,4 @@ dump_gpg_passphrase = gpgpassphrasegoeshere
 tar_gpg_passphrase = gpgpassphrasegoeshere 
 encrypt_dump = true
 encrypt_tar = true
-
+recipients = fale
