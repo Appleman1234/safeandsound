@@ -100,7 +100,7 @@ def main():
         shutil.copy(filename,directory)
  
         # Adjust permissions   
-        os.system("chown " + user + ":" + user + " " + directory + "/" + tar_filename)
+        os.system("chown " + user + ":" + user + " " + directory + "/" + filename)
 
 
 if __name__ == '__main__':
