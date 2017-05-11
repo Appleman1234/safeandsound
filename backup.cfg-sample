@@ -6,4 +6,6 @@ dump_gpg_passphrase = gpgpassphrasegoeshere
 tar_gpg_passphrase = gpgpassphrasegoeshere 
 encrypt_dump = true
 encrypt_tar = true
-
+encryption_mode_dump = symmetric
+encryption_mode_tar = symmetric
+gpg_recipients = somebody@somwhere.com,nobody@nowhere.net

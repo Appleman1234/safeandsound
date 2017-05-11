@@ -18,6 +18,8 @@ Currently it supports
 * Making a gzipped tarball
 * GPG symmetric encryption of the MySQL database dump 
 * GPG symmetric encryption of the tarball 
+* GPG asymmetric encryption of the MySQL database dump
+* GPG asymmetric encryption of the tarball
 * Copying the backup to a given user directory in order for it to be pulled to a remote server
 
 It probably needs more features, more error handling, more documentation, etc, Patches and pull requests are welcome.
@@ -26,8 +28,13 @@ Possible future functionality
 * Actually interacting with / delegating to other backup software (duplicity, barman, Amanda, rsync,etc)
 * Incremental backups
 * Pull and push distribution of backups.
-* GPG asymmetric encryption
+
 
 Current dependencies are
 * mysqldump needs to be configured in order to run using a predefined password in its configuration file
 * python-gnupg for encryption
+
+Using GPG Asymmetric encryption
+
+encryption_mode_dump or encryption_mode_tar need to be asymmetric
+gpg_recipients needs to a comma separated list of emails,  public keys for the recipients must exist in the keyring identified in gnupghome.
