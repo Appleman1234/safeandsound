@@ -38,8 +38,8 @@ def main():
     dump_gpg_passphrase = config.get('settings', 'dump_gpg_passphrase').split(',') 
     encrypt_dump = config.getboolean('settings', 'encrypt_dump')
     encrypt_tar = config.getboolean('settings', 'encrypt_tar')
-    encrypt_mode_dump = config.getboolean('settings', 'encryption_mode_dump')
-    encrypt_mode_tar = config.getboolean('settings', 'encryption_mode_tar')
+    encrypt_mode_dump = config.get('settings', 'encryption_mode_dump')
+    encrypt_mode_tar = config.get('settings', 'encryption_mode_tar')
     gpg_recipients = config.get('settings', 'gpg_recipients').split(',')
 
     scp_directories = ["/home/" + x for x in scp_users]
