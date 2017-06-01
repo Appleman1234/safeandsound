@@ -54,7 +54,7 @@ def main():
     # Copy files into directory
     for directory in directories_to_backup:
        directory_suffix =  os.path.basename(os.path.normpath(directory)) 
-       copy_tree(directory,backup_directory_slash + directory_suffix)
+       copy_tree(directory,backup_directory_slash + directory_suffix,preserve_symlinks=1)
     
     # Database dump 
     #os.system("mysqldump --all-databases > " + backup_directory_slash + "dump-$(date +%Y-%m-%d_%H-%M-%S).sql")
